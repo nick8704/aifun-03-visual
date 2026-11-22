@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use("Agg")
+
 import numpy as np
 import seaborn as sns
 import pandas as pd
@@ -11,6 +14,16 @@ def create_scatter_plot(data):
     Parameters:
     data (DataFrame): A DataFrame containing 'x' and 'y' columns.
     """
+    
+    sns.set_theme(style="whitegrid")
+    
+    fig, ax = plt.subplots()
+    sns.scatterplot(data=data, x="x", y="y", ax=ax)
+    
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.set_title("Relationship between x and y")
+    ax.grid(True)
     
     return fig
 
