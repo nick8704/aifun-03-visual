@@ -10,6 +10,18 @@ def create_interactive_plotly(df):
     Parameters:
     df (DataFrame): A DataFrame containing 'x' and 'y' columns.
     """
+    fig = px.scatter(
+        df,
+        x="x",
+        y="y",
+        title="Interactive Scatter Plot: X vs Y",
+        labels={"x": "X Axis", "y":"Y Axis"}
+    )
+    
+    fig.update_layout(
+        showlegend=True,
+        hovermode="closest"
+    )
 
     return fig
 
